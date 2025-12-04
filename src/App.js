@@ -5,10 +5,16 @@ const API_URL = process.env.REACT_APP_API_URL || '';
 
 function App() {
   const [counter, setCounter] = useState(0);
+  const [clicksPerClick, setClicksPerClick] = useState(1);
+  const [upgrades, setUpgrades] = useState([]);
+  const [ownedUpgrades, setOwnedUpgrades] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [pluginInfo, setPluginInfo] = useState(null);
 
   useEffect(() => {
     fetchCounter();
+    fetchUpgrades();
+    fetchPluginInfo();
   }, []);
 
   const fetchCounter = async () => {
@@ -16,10 +22,32 @@ function App() {
       const response = await fetch(`${API_URL}/api/counter`);
       const data = await response.json();
       setCounter(data.value);
+      setClicksPerClick(data.clicksPerClick);
+      setOwnedUpgrades(data.upgrades || []);
       setLoading(false);
     } catch (error) {
       console.error('Error fetching counter:', error);
       setLoading(false);
+    }
+  };
+
+  const fetchUpgrades = async () => {
+    try {
+      const response = await fetch(`${API_URL}/api/upgrades`);
+      const data = await response.json();
+      setUpgrades(data.upgrades || []);
+    } catch (error) {
+      console.error('Error fetching upgrades:', error);
+    }
+  };
+
+  const fetchPluginInfo = async () => {
+    try {
+      const response = await fetch(`${API_URL}/api/plugin/info`);
+      const data = await response.json();
+      setPluginInfo(data);
+    } catch (error) {
+      console.error('Error fetching plugin info:', error);
     }
   };
 
@@ -30,18 +58,52 @@ function App() {
       });
       const data = await response.json();
       setCounter(data.value);
+      setClicksPerClick(data.clicksPerClick);
+      fetchUpgrades(); // Refresh upgrades to update affordability
     } catch (error) {
       console.error('Error incrementing counter:', error);
     }
   };
 
+  const purchaseUpgrade = async (upgradeId) => {
+    try {
+      const response = await fetch(`${API_URL}/api/upgrades/purchase`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ upgradeId }),
+      });
+      const data = await response.json();
+      
+      if (data.success) {
+        setCounter(data.newTotal);
+        setOwnedUpgrades([...ownedUpgrades, upgradeId]);
+        fetchUpgrades(); // Refresh upgrades
+        alert(data.message);
+      } else {
+        alert(data.message);
+      }
+    } catch (error) {
+      console.error('Error purchasing upgrade:', error);
+      alert('Failed to purchase upgrade');
+    }
+  };
+
   const resetCounter = async () => {
+    if (!window.confirm('Are you sure you want to reset? This will remove all upgrades!')) {
+      return;
+    }
+    
     try {
       const response = await fetch(`${API_URL}/api/counter/reset`, {
         method: 'POST',
       });
       const data = await response.json();
       setCounter(data.value);
+      setClicksPerClick(1);
+      setOwnedUpgrades([]);
+      fetchUpgrades();
     } catch (error) {
       console.error('Error resetting counter:', error);
     }
@@ -52,17 +114,56 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Clicker Application</h1>
+        <h1>🍪 Clicker Application</h1>
+        
+        {pluginInfo && (
+          <div className="plugin-info">
+            <small>Plugin: {pluginInfo.name} {pluginInfo.version}</small>
+          </div>
+        )}
+        
         <div className="counter-display">
-          <h2>Counter: {counter}</h2>
+          <h2>{counter} clicks</h2>
+          <p className="per-click">+{clicksPerClick} per click</p>
         </div>
+        
         <div className="button-group">
           <button onClick={incrementCounter} className="btn-increment">
-            Click Me! (+1)
+            Click Me! (+{clicksPerClick})
           </button>
           <button onClick={resetCounter} className="btn-reset">
             Reset
           </button>
+        </div>
+
+        <div className="upgrades-section">
+          <h3>🛒 Upgrades Shop</h3>
+          <div className="upgrades-list">
+            {upgrades.map((upgrade) => (
+              <div 
+                key={upgrade.id} 
+                className={`upgrade-card ${upgrade.is_purchased ? 'purchased' : ''} ${counter >= upgrade.cost && !upgrade.is_purchased ? 'affordable' : ''}`}
+              >
+                <div className="upgrade-header">
+                  <h4>{upgrade.name}</h4>
+                  {upgrade.is_purchased && <span className="badge">✓ Owned</span>}
+                </div>
+                <p className="upgrade-description">{upgrade.description}</p>
+                <div className="upgrade-footer">
+                  <span className="upgrade-cost">Cost: {upgrade.cost} clicks</span>
+                  {!upgrade.is_purchased && (
+                    <button
+                      onClick={() => purchaseUpgrade(upgrade.id)}
+                      disabled={counter < upgrade.cost}
+                      className="btn-buy"
+                    >
+                      {counter >= upgrade.cost ? 'Buy' : 'Not enough clicks'}
+                    </button>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </header>
     </div>
