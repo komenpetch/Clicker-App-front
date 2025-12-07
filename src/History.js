@@ -12,21 +12,31 @@ function History() {
   const [pagination, setPagination] = useState(null);
 
   useEffect(() => {
-    fetchHistory();
+    fetchHistory(true);
     fetchStats();
   }, [page]);
 
-  const fetchHistory = async () => {
+  // Poll history and stats every 2 seconds for real-time updates
+  useEffect(() => {
+    const interval = setInterval(() => {
+      fetchHistory();
+      fetchStats();
+    }, 2000); // Update every 2 seconds
+
+    return () => clearInterval(interval); // Cleanup on unmount
+  }, [page]);
+
+  const fetchHistory = async (showLoading = false) => {
     try {
-      setLoading(true);
+      if (showLoading) setLoading(true);
       const response = await fetch(`${LOGS_API_URL}/api/history?page=${page}&limit=50`);
       const data = await response.json();
       setHistory(data.data);
       setPagination(data.pagination);
-      setLoading(false);
+      if (showLoading) setLoading(false);
     } catch (error) {
       console.error('Error fetching history:', error);
-      setLoading(false);
+      if (showLoading) setLoading(false);
     }
   };
 
@@ -49,7 +59,7 @@ function History() {
       await fetch(`${LOGS_API_URL}/api/history`, {
         method: 'DELETE',
       });
-      fetchHistory();
+      fetchHistory(true);
       fetchStats();
     } catch (error) {
       console.error('Error clearing history:', error);
