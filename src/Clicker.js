@@ -130,17 +130,40 @@ function Clicker() {
 
   if (loading) return <div className="App">Loading...</div>;
 
+  // Organize upgrades: Affordable first, then unaffordable, then purchased
+  const organizedUpgrades = [...upgrades].sort((a, b) => {
+    // Purchased items go to the end
+    if (a.is_purchased && !b.is_purchased) return 1;
+    if (!a.is_purchased && b.is_purchased) return -1;
+
+    // Among unpurchased items
+    if (!a.is_purchased && !b.is_purchased) {
+      const aAffordable = counter >= a.cost;
+      const bAffordable = counter >= b.cost;
+
+      // Affordable items come first
+      if (aAffordable && !bAffordable) return -1;
+      if (!aAffordable && bAffordable) return 1;
+
+      // Within same affordability, sort by cost (ascending)
+      return a.cost - b.cost;
+    }
+
+    // Among purchased items, sort by cost
+    return a.cost - b.cost;
+  });
+
   return (
     <div className="App">
       <header className="App-header">
         <h1>🍪 Clicker Application</h1>
-        
+
         {pluginInfo && (
           <div className="plugin-info">
             <small>Plugin: {pluginInfo.name} {pluginInfo.version}</small>
           </div>
         )}
-        
+
         <div className="counter-display">
           <h2>{counter} clicks</h2>
           <p className="per-click">+{clicksPerClick} per click</p>
@@ -167,9 +190,9 @@ function Clicker() {
         <div className="upgrades-section">
           <h3>🛒 Upgrades Shop</h3>
           <div className="upgrades-list">
-            {upgrades.map((upgrade) => (
-              <div 
-                key={upgrade.id} 
+            {organizedUpgrades.map((upgrade) => (
+              <div
+                key={upgrade.id}
                 className={`upgrade-card ${upgrade.is_purchased ? 'purchased' : ''} ${counter >= upgrade.cost && !upgrade.is_purchased ? 'affordable' : ''}`}
               >
                 <div className="upgrade-header">

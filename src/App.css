@@ -15,7 +15,7 @@ html, body, #root {
   text-align: center;
   min-height: 100vh;
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 20%, #334155 40%, #1e3a8a 60%, #4338ca 100%);
-  padding: 30px 20px;
+  padding: 15px 20px;
   font-family: 'Poppins', sans-serif;
   position: relative;
   overflow-x: hidden;
@@ -65,14 +65,14 @@ html, body, #root {
   margin: 0 auto;
   position: relative;
   z-index: 1;
-  padding: 20px 0;
+  padding: 10px 0;
   width: 100%;
 }
 
 .App-header h1 {
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  margin-bottom: 20px;
-  margin-top: 10px;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  margin-bottom: 12px;
+  margin-top: 5px;
   font-weight: 900;
   background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 25%, #fbbf24 50%, #f59e0b 75%, #fbbf24 100%);
   background-size: 300% 300%;
@@ -80,8 +80,8 @@ html, body, #root {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: titleFloat 3s ease-in-out infinite, gradientShift 8s ease infinite;
-  filter: drop-shadow(0 0 35px rgba(251, 191, 36, 0.45)) drop-shadow(0 4px 20px rgba(0, 0, 0, 0.5));
-  letter-spacing: 2px;
+  filter: drop-shadow(0 0 20px rgba(251, 191, 36, 0.4)) drop-shadow(0 4px 15px rgba(0, 0, 0, 0.4));
+  letter-spacing: 1.5px;
   line-height: 1.2;
 }
 
@@ -96,12 +96,12 @@ html, body, #root {
 }
 
 .plugin-info {
-  margin-bottom: 25px;
+  margin-bottom: 12px;
   opacity: 0.75;
-  font-size: 0.9rem;
-  padding: 10px 22px;
+  font-size: 0.75rem;
+  padding: 6px 14px;
   background: rgba(255, 255, 255, 0.07);
-  border-radius: 25px;
+  border-radius: 20px;
   display: inline-block;
   backdrop-filter: blur(15px);
   border: 1.5px solid rgba(255, 255, 255, 0.15);
@@ -116,15 +116,15 @@ html, body, #root {
 }
 
 .counter-display {
-  margin: 45px auto;
-  padding: 50px 40px;
+  margin: 20px auto;
+  padding: 28px 24px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.06));
-  border-radius: 32px;
+  border-radius: 24px;
   backdrop-filter: blur(25px) saturate(180%);
   border: 2px solid rgba(255, 255, 255, 0.28);
-  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3),
+  box-shadow: 0 8px 35px rgba(0, 0, 0, 0.3),
               0 0 0 1px rgba(255, 255, 255, 0.1) inset,
-              0 20px 60px -20px rgba(139, 92, 246, 0.5);
+              0 15px 45px -20px rgba(139, 92, 246, 0.5);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
@@ -157,8 +157,8 @@ html, body, #root {
 }
 
 .counter-display h2 {
-  font-size: clamp(2.5rem, 8vw, 5rem);
-  margin: 0 0 15px 0;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  margin: 0 0 10px 0;
   font-weight: 900;
   background: linear-gradient(135deg, #fef3c7 0%, #fbbf24 25%, #f59e0b 50%, #fbbf24 75%, #fef3c7 100%);
   background-size: 300% 300%;
@@ -166,8 +166,8 @@ html, body, #root {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: shimmer 4s ease-in-out infinite;
-  filter: drop-shadow(0 0 45px rgba(251, 191, 36, 0.65)) drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
-  letter-spacing: 3px;
+  filter: drop-shadow(0 0 35px rgba(251, 191, 36, 0.6)) drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
+  letter-spacing: 2px;
   position: relative;
   line-height: 1;
 }
@@ -178,7 +178,7 @@ html, body, #root {
 }
 
 .per-click {
-  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
   opacity: 0.98;
   margin: 0;
   background: linear-gradient(90deg, #6ee7b7, #34d399, #10b981);
@@ -186,7 +186,7 @@ html, body, #root {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-weight: 800;
-  filter: drop-shadow(0 2px 12px rgba(16, 185, 129, 0.5));
+  filter: drop-shadow(0 2px 10px rgba(16, 185, 129, 0.5));
   letter-spacing: 0.5px;
 }
 
@@ -200,29 +200,29 @@ html, body, #root {
 
 .button-group {
   display: flex;
-  gap: 20px;
+  gap: 12px;
   justify-content: center;
-  margin-bottom: 60px;
+  margin-bottom: 25px;
   flex-wrap: wrap;
   padding: 0 10px;
 }
 
 button {
-  padding: clamp(15px, 3vw, 22px) clamp(32px, 5vw, 50px);
-  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  padding: clamp(10px, 2.5vw, 14px) clamp(20px, 4vw, 32px);
+  font-size: clamp(0.8rem, 1.8vw, 0.95rem);
   border: none;
-  border-radius: 18px;
+  border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-weight: 800;
   font-family: 'Poppins', sans-serif;
   text-transform: uppercase;
-  letter-spacing: 1.2px;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3), 0 2px 10px rgba(0, 0, 0, 0.15);
+  letter-spacing: 1px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.15);
   position: relative;
   overflow: hidden;
   border: 2px solid transparent;
-  min-width: 140px;
+  min-width: 120px;
 }
 
 button::before {
@@ -280,28 +280,28 @@ button:active::before {
 }
 
 .btn-history {
-  padding: clamp(15px, 3vw, 22px) clamp(32px, 5vw, 50px);
-  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  padding: clamp(10px, 2.5vw, 14px) clamp(20px, 4vw, 32px);
+  font-size: clamp(0.8rem, 1.8vw, 0.95rem);
   border: none;
-  border-radius: 18px;
+  border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-weight: 800;
   font-family: 'Poppins', sans-serif;
   text-transform: uppercase;
-  letter-spacing: 1.2px;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3), 0 2px 10px rgba(0, 0, 0, 0.15);
+  letter-spacing: 1px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.15);
   position: relative;
   overflow: hidden;
   border: 2px solid transparent;
-  min-width: 140px;
+  min-width: 120px;
   background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 50%, #6d28d9 100%);
   color: white;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 25px rgba(139, 92, 246, 0.45), 0 10px 45px rgba(139, 92, 246, 0.25);
+  box-shadow: 0 4px 18px rgba(139, 92, 246, 0.4), 0 8px 35px rgba(139, 92, 246, 0.25);
 }
 
 .btn-history:hover {
@@ -317,34 +317,37 @@ button:active::before {
 }
 
 .upgrades-section {
-  margin-top: 60px;
-  padding: 40px 30px;
+  margin-top: 25px;
+  padding: 20px 20px;
   background: rgba(255, 255, 255, 0.04);
-  border-radius: 32px;
+  border-radius: 20px;
   backdrop-filter: blur(12px);
   border: 1.5px solid rgba(255, 255, 255, 0.12);
   transition: all 0.3s ease;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .upgrades-section h3 {
-  font-size: clamp(1.8rem, 5vw, 2.8rem);
-  margin-bottom: 35px;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  margin-bottom: 20px;
   margin-top: 0;
   font-weight: 900;
   background: linear-gradient(135deg, #c4b5fd, #a78bfa, #8b5cf6, #7c3aed);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 2px 12px rgba(139, 92, 246, 0.35));
+  filter: drop-shadow(0 2px 10px rgba(139, 92, 246, 0.35));
   letter-spacing: 1px;
   background-size: 300% 300%;
 }
 
 .upgrades-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 28px;
-  margin-top: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 15px;
   padding: 0 5px;
 }
 
@@ -357,12 +360,12 @@ button:active::before {
 
 .upgrade-card {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
-  border-radius: 24px;
-  padding: 32px;
+  border-radius: 12px;
+  padding: 12px;
   backdrop-filter: blur(18px) saturate(180%);
   border: 2px solid rgba(255, 255, 255, 0.18);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -430,31 +433,31 @@ button:active::before {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
-  gap: 12px;
+  margin-bottom: 6px;
+  gap: 6px;
   flex-wrap: wrap;
 }
 
 .upgrade-header h4 {
   margin: 0;
-  font-size: clamp(1.15rem, 3vw, 1.5rem);
+  font-size: clamp(0.9rem, 2.2vw, 1.05rem);
   font-weight: 800;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
   color: #f3f4f6;
   flex: 1;
-  min-width: 150px;
+  min-width: 100px;
 }
 
 .badge {
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  padding: 8px 16px;
-  border-radius: 12px;
-  font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: clamp(0.6rem, 1.2vw, 0.7rem);
   font-weight: 800;
-  box-shadow: 0 3px 15px rgba(16, 185, 129, 0.5), 0 0 25px rgba(16, 185, 129, 0.25);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.5), 0 0 15px rgba(16, 185, 129, 0.25);
   animation: badgePulse 2s ease-in-out infinite;
   border: 1.5px solid rgba(52, 211, 153, 0.6);
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
   white-space: nowrap;
 }
 
@@ -464,10 +467,10 @@ button:active::before {
 }
 
 .upgrade-description {
-  margin: 15px 0;
+  margin: 6px 0;
   opacity: 0.9;
-  line-height: 1.7;
-  font-size: clamp(0.85rem, 2vw, 1rem);
+  line-height: 1.5;
+  font-size: clamp(0.75rem, 1.6vw, 0.85rem);
   color: #e5e7eb;
   font-weight: 500;
   flex: 1;
@@ -477,34 +480,34 @@ button:active::before {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 20px;
-  padding-top: 20px;
+  margin-top: 8px;
+  padding-top: 8px;
   border-top: 1.5px solid rgba(255, 255, 255, 0.12);
-  gap: 12px;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
 .upgrade-cost {
   font-weight: 900;
-  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  font-size: clamp(0.85rem, 2vw, 1rem);
   background: linear-gradient(135deg, #fef3c7, #fbbf24, #f59e0b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 2px 10px rgba(251, 191, 36, 0.5));
-  letter-spacing: 0.5px;
+  filter: drop-shadow(0 2px 6px rgba(251, 191, 36, 0.5));
+  letter-spacing: 0.3px;
   min-width: fit-content;
 }
 
 .btn-buy {
-  padding: 12px clamp(16px, 3vw, 28px);
-  font-size: clamp(0.8rem, 1.5vw, 0.95rem);
+  padding: 6px clamp(10px, 2.2vw, 16px);
+  font-size: clamp(0.7rem, 1.3vw, 0.8rem);
   background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 50%, #6d28d9 100%);
   color: white;
-  letter-spacing: 0.7px;
+  letter-spacing: 0.5px;
   text-transform: none;
-  border-radius: 14px;
-  box-shadow: 0 4px 18px rgba(139, 92, 246, 0.35);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(139, 92, 246, 0.35);
   font-weight: 800;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   min-width: auto;
@@ -562,34 +565,34 @@ button:active::before {
 /* Mobile responsiveness */
 @media (max-width: 640px) {
   .App {
-    padding: 20px 15px;
+    padding: 12px 10px;
   }
 
   .App-header {
-    padding: 15px 0;
+    padding: 8px 0;
   }
 
   .counter-display {
-    margin: 30px auto;
-    padding: 35px 25px;
+    margin: 15px auto;
+    padding: 20px 18px;
   }
 
   .button-group {
-    gap: 15px;
-    margin-bottom: 45px;
+    gap: 10px;
+    margin-bottom: 20px;
   }
 
   button {
-    min-width: 120px;
+    min-width: 100px;
   }
 
   .upgrades-section {
-    margin-top: 45px;
-    padding: 25px 20px;
+    margin-top: 20px;
+    padding: 16px 12px;
   }
 
   .upgrade-card {
-    padding: 22px;
+    padding: 10px;
   }
 
   .upgrade-header {

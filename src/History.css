@@ -1,23 +1,23 @@
 .History {
   min-height: 100vh;
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 20%, #334155 40%, #1e3a8a 60%, #4338ca 100%);
-  padding: 30px 20px;
+  padding: 15px 20px;
   font-family: 'Poppins', sans-serif;
   color: white;
 }
 
 .history-header {
   max-width: 1400px;
-  margin: 0 auto 40px;
+  margin: 0 auto 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 12px;
 }
 
 .history-header h1 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
   margin: 0;
   font-weight: 900;
   background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 25%, #fbbf24 50%, #f59e0b 75%, #fbbf24 100%);
@@ -25,21 +25,21 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 0 35px rgba(251, 191, 36, 0.45));
+  filter: drop-shadow(0 0 20px rgba(251, 191, 36, 0.35));
 }
 
 .header-actions {
   display: flex;
-  gap: 15px;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
 .btn-back,
 .btn-clear {
-  padding: 12px 24px;
-  font-size: 1rem;
+  padding: 8px 16px;
+  font-size: 0.85rem;
   border: none;
-  border-radius: 12px;
+  border-radius: 8px;
   cursor: pointer;
   font-weight: 700;
   font-family: 'Poppins', sans-serif;
@@ -74,20 +74,20 @@
 
 .stats-container {
   max-width: 1400px;
-  margin: 0 auto 40px;
+  margin: 0 auto 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
 }
 
 .stat-card {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
-  border-radius: 16px;
-  padding: 24px;
+  border-radius: 12px;
+  padding: 14px;
   backdrop-filter: blur(18px);
   border: 2px solid rgba(255, 255, 255, 0.18);
   transition: all 0.3s ease;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .stat-card:hover {
@@ -107,14 +107,14 @@
 }
 
 .stat-label {
-  font-size: 0.9rem;
+  font-size: 0.75rem;
   opacity: 0.8;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   font-weight: 600;
 }
 
 .stat-value {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 900;
   background: linear-gradient(135deg, #fbbf24, #f59e0b);
   -webkit-background-clip: text;
@@ -126,8 +126,8 @@
   max-width: 1400px;
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 16px;
-  padding: 20px;
+  border-radius: 12px;
+  padding: 12px;
   backdrop-filter: blur(12px);
   border: 1.5px solid rgba(255, 255, 255, 0.12);
   overflow-x: auto;
@@ -144,19 +144,19 @@
 }
 
 .history-table th {
-  padding: 16px 12px;
+  padding: 10px 8px;
   text-align: left;
   font-weight: 800;
-  font-size: 0.95rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   border-bottom: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .history-table td {
-  padding: 14px 12px;
+  padding: 8px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  font-size: 0.95rem;
+  font-size: 0.85rem;
 }
 
 .history-table tbody tr {
@@ -168,7 +168,7 @@
 }
 
 .time-cell {
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   opacity: 0.9;
 }
 
@@ -187,7 +187,7 @@
 
 .amount-cell {
   font-weight: 800;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
 }
 
 .amount-cell.increase {
@@ -200,30 +200,30 @@
 
 .reason-cell {
   opacity: 0.8;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 
 .no-data {
   text-align: center;
-  padding: 40px !important;
+  padding: 24px !important;
   opacity: 0.7;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
 }
 
 .pagination {
   max-width: 1400px;
-  margin: 30px auto 0;
+  margin: 16px auto 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
 }
 
 .btn-page {
-  padding: 10px 20px;
-  font-size: 0.95rem;
+  padding: 7px 14px;
+  font-size: 0.8rem;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   cursor: pointer;
   font-weight: 700;
   font-family: 'Poppins', sans-serif;
@@ -244,13 +244,13 @@
 
 .page-info {
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.85rem;
 }
 
 .loading {
   text-align: center;
-  font-size: 1.5rem;
-  margin-top: 100px;
+  font-size: 1.2rem;
+  margin-top: 60px;
   opacity: 0.8;
 }
 
