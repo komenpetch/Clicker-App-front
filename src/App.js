@@ -10,11 +10,21 @@ function App() {
   const [ownedUpgrades, setOwnedUpgrades] = useState([]);
   const [loading, setLoading] = useState(true);
   const [pluginInfo, setPluginInfo] = useState(null);
+  const [floatingNumbers, setFloatingNumbers] = useState([]);
 
   useEffect(() => {
     fetchCounter();
     fetchUpgrades();
     fetchPluginInfo();
+  }, []);
+
+  // Poll counter every second for auto-click updates
+  useEffect(() => {
+    const interval = setInterval(() => {
+      fetchCounter();
+    }, 1000); // Update every 1 second
+
+    return () => clearInterval(interval); // Cleanup on unmount
   }, []);
 
   const fetchCounter = async () => {
@@ -59,6 +69,14 @@ function App() {
       const data = await response.json();
       setCounter(data.value);
       setClicksPerClick(data.clicksPerClick);
+
+      // Add floating number animation
+      const id = Date.now();
+      setFloatingNumbers(prev => [...prev, { id, value: data.clicksPerClick }]);
+      setTimeout(() => {
+        setFloatingNumbers(prev => prev.filter(num => num.id !== id));
+      }, 1000);
+
       fetchUpgrades(); // Refresh upgrades to update affordability
     } catch (error) {
       console.error('Error incrementing counter:', error);
@@ -125,8 +143,14 @@ function App() {
         <div className="counter-display">
           <h2>{counter} clicks</h2>
           <p className="per-click">+{clicksPerClick} per click</p>
+
+          {floatingNumbers.map(num => (
+            <div key={num.id} className="floating-number">
+              +{num.value}
+            </div>
+          ))}
         </div>
-        
+
         <div className="button-group">
           <button onClick={incrementCounter} className="btn-increment">
             Click Me! (+{clicksPerClick})
